@@ -4,7 +4,11 @@
   "description": "Socket-IO server for the React client chat app",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "start": "node server.js",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \" npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [
     "Socket.IO",
@@ -14,6 +18,7 @@
   "author": "Faisal Hoque",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^4.1.0",
     "express": "^4.17.0",
     "socket.io": "^2.2.0"
   },
