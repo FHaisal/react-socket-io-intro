@@ -1,0 +1,23 @@
+{
+  "name": "react-socket-io-intro",
+  "version": "1.0.0",
+  "description": "Socket-IO server for the React client chat app",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "Socket.IO",
+    "ReactJS",
+    "Styled-Components"
+  ],
+  "author": "Faisal Hoque",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}

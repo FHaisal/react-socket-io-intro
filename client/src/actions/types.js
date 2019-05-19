@@ -1,0 +1,7 @@
+export const UPDATE_USER = 'UPDATE_USER';
+export const CONNECT_SOCKET = 'CONNECT_SOCKET';
+export const SOCKET_EMIT = 'SOCKET_EMIT';
+export const SOCKET_ON = 'SOCKET_ON';
+export const SOCKET_OFF = 'SOCKET_OFF';
+export const UPDATE_ONLINE_LIST = 'UPDATE_ONLINE_LIST';
+export const PRIVATE_MESSAGE = 'PRIVATE_MESSAGE';
