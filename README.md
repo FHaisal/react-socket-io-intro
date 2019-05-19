@@ -2,6 +2,9 @@
 This is an adaptation of the introductory Socket.IO chat app developed in ReactJS with Socket.IO for real time communication 
 between users. 
 
+## App Demo
+You can demo this app here: https://secure-crag-72245.herokuapp.com/
+
 ## Features included:
 - [x] Notifies everyone online when a user connects/disconnects. 
 - [x] Allows you to choose custom and duplicate nicknames.
