@@ -7,15 +7,19 @@ const path = require('path');
 let onlineList = [];
 
 io.on('connection', (socket) => {
-  let { name, socketID } = socket.handshake.query;
+  let name = '', socketID = '';
+  socket.on('update_name', (data) => {
+    name = data.name;
+  });
+
   socket.on('update_online', (newID) => {
     socketID = newID;
     onlineList.push({ name, socketID });
     io.emit('update_online', onlineList);
-  });
 
-  io.to(`${socket.id}`).emit('message', { content: `TIP: You can click online users to private message them!`, time: `${new Date().toLocaleTimeString().substring(0, 5)} ${new Date().getHours() >= 12 ? 'PM' : 'AM'}`, socketID, type: 'announcement' });
-  io.emit('message', { content: `${name} has connected!`, time: `${new Date().toLocaleTimeString().substring(0, 5)} ${new Date().getHours() >= 12 ? 'PM' : 'AM'}`, socketID, type: 'announcement' });
+    io.to(`${socket.id}`).emit('message', { content: `TIP: You can click online users to private message them!`, time: `${new Date().toLocaleTimeString().substring(0, 5)} ${new Date().getHours() >= 12 ? 'PM' : 'AM'}`, socketID, type: 'announcement' });
+    io.emit('message', { content: `${name} has connected!`, time: `${new Date().toLocaleTimeString().substring(0, 5)} ${new Date().getHours() >= 12 ? 'PM' : 'AM'}`, socketID, type: 'announcement' });
+  });
 
   socket.on('message', (data) => {
     socket.broadcast.emit('message', data);

@@ -6,7 +6,7 @@ import { socketMiddleware } from '../middleware/socket-middleware';
 
 const initialState = {};
 
-const middleware = [thunk, socketMiddleware('http://localhost:5000')];
+const middleware = [thunk, socketMiddleware()];
 
 const store = createStore(
   rootReducer,
