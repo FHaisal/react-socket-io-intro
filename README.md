@@ -17,3 +17,7 @@ You can demo this app here: https://secure-crag-72245.herokuapp.com/
 - [ ] Group chat functionality.
 - [ ] User alerts when a new message is sent.
 - [ ] Private message rooms.
+- [ ] Admin abilities: Kick, ban, mute, etc users.
+- [ ] Register/Login screens with persistent user login.
+- [ ] Save messages to a database.
+- [ ] Customise themes, i.e: Dark, light, etc themes.
