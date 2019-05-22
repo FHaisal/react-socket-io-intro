@@ -69,8 +69,3 @@ export const StyledMessageBtnContainer = styled.div`
   border-bottom: 1px dashed black;
   box-sizing: border-box;
 `;
-
-export const StyledTypingArea = styled.div`
-  position: absolute;
-  top: -22px;
-`;

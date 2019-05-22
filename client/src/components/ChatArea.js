@@ -7,6 +7,7 @@ import isEmpty from '../validation/is-empty';
 import {GlobalArea} from "../styles/globals";
 import MessageArea from './MessageArea';
 import MessageBox from './MessageBox';
+import UserIsTyping from "./UserIsTyping";
 
 import { socketEmit, socketOn, socketOff } from "../actions/socketActions";
 
@@ -169,13 +170,16 @@ class ChatArea extends Component {
           onlineList={user.onlineList}
         />
 
+        <UserIsTyping
+          typing={peopleTyping}
+        />
+
         <MessageBox
           name={'messagebox'}
           placeholder={placeholder}
           value={messagebox}
           onChange={this.onChange}
           onSubmit={this.onSubmit}
-          typing={peopleTyping}
           privatemessage={!isEmpty(privateMessage)}
         />
       </GlobalArea>

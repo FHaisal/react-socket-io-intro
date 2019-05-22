@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from '../validation/is-empty';
 
 import {
   StyledMessageBox,
   StyledMessageBtnContainer,
   StyledMessageButton,
-  StyledMessageContainer, StyledTypingArea
+  StyledMessageContainer,
 } from "../styles/message-box";
 
-function MessageBox({ placeholder, name, value, onChange, onSubmit, typing, privatemessage }) {
+function MessageBox({ placeholder, name, value, onChange, onSubmit, privatemessage }) {
   const handleKeyDown = (e) => {
     if (e.keyCode === 13 && !e.shiftKey) {
       onSubmit(e);
@@ -18,16 +17,6 @@ function MessageBox({ placeholder, name, value, onChange, onSubmit, typing, priv
 
   return (
     <StyledMessageContainer onSubmit={onSubmit}>
-      <StyledTypingArea>
-        {
-          typing.map(({name}, index) => {
-            return (
-              index < 5 ? `${name}, ` : undefined
-            )
-          })
-        }{isEmpty(typing) ? '' : ` ${typing.length > 5 ? `and ${typing.length - 5} more are` : 'is'} typing...`}
-      </StyledTypingArea>
-
       <StyledMessageBox
         rows={1}
         maxRows={8}
@@ -56,7 +45,6 @@ MessageBox.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
-  typing: PropTypes.array,
   privatemessage: PropTypes.bool,
 };
 
@@ -66,7 +54,6 @@ MessageBox.defaultProps = {
   value: undefined,
   onChange: undefined,
   onSubmit: undefined,
-  typing: [],
   privateMessage: false,
 };
 
