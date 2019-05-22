@@ -30,6 +30,8 @@ export const socketMiddleware = () => {
         socket.removeListener(action.payload.type);
         return;
       }
+      default:
+        next(action);
     }
 
     return next(action);
